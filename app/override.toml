@@ -1,0 +1,105 @@
+# Copyright 2023 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# -----------------------------------------------------------------------------
+# Global Configurations
+# -----------------------------------------------------------------------------
+[global]
+
+# Replace with your project ID and location
+project_id = 'do-data-hub'
+location = 'us-central1'
+service_account_json_key = "/app/credentials.json"
+
+# -----------------------------------------------------------------------------
+# Configurations for page: 3_Audiences.py
+# -----------------------------------------------------------------------------
+[pages.3_audiences]
+
+# Dataset ID of the BigQuery dataset. If you change the dataset_id during the deployment 
+# of this solution, change it here as well.
+dataset_id = 'cdp_dataset'
+
+# Tag name for the Dataplex Tag manager.
+tag_name = 'llmcdptemplate'
+
+
+# -----------------------------------------------------------------------------
+# Configurations for page: 0_Campaigns.py
+# -----------------------------------------------------------------------------
+[pages.campaigns]
+# This variable will be used to give permissions to all users under this domain
+# This permission is related to the Workspace Drive folder
+domain = 'digitaloasis.com.au'
+
+
+# -----------------------------------------------------------------------------
+# Configurations for 5_Consumer_Insights.py
+# -----------------------------------------------------------------------------
+[pages.5_consumer_insights]
+# Vertex AI Search datastores and location. 
+# Change the dataset variable to reflect your configuration.
+# Sample datastore ID
+datastores.dosearch_1707953414228 = "default_config"
+search_location = "global"
+
+
+# -----------------------------------------------------------------------------
+# Configurations for 12_Review_Activate.py =========
+# -----------------------------------------------------------------------------
+[pages.12_review_activate]
+
+# ID of the templates
+# Change this variables according to your Google Workspace settings
+drive_folder_id = "1A4Fd9PF6LMNga6NbZzBez-_pKGgHeMey" # example: "1MYB0Ybyo9XZERgIcjsdfeqO0SKqhrkvqMx"
+slides_template_id = '1KINdhYnnbNf5Npe8OBXWplOLHBnpboO2' # example: '16uQlLkCJ9YRiMU_IoONHsl-vY-uKeoasnWTPlbZZ1D4'
+doc_template_id = '1jyhhy6o5UaAcOXSqbnDHuub2ic2MTbJ1k35RoQek9-E' # example: '1kqvxZLRXIdfM8MVS7css4UoiJ8f0I4dKFj9cP986K4pM'
+sheet_template_id = '1x4aQIIVU7YYOJEa3H6nbQ2WAio0edNvw' # example: '1gIaIWLOeKmnjso7-CAAAcqMlPznpoEXDdEue3DNWr7bw'
+slide_page_id_list = ["p3","p4","p5","p6","p7","p8"] # LIST OF PAGES WHERE YOU WANT TO INSERT CHARTS FROM THE SHEETS
+
+# -----------------------------------------------------------------------------
+# Configurations for 13_Campaign_Performance.py
+# -----------------------------------------------------------------------------
+[pages.13_campaign_performance]
+
+# Infobot version
+# Change with the code snippet provided by your Infobot deployment
+# The code is similar to the one commented below
+infobot = """<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  project-id="do-data-hub"
+  agent-id="3e4f1e5e-e20f-42e9-bf4c-30747b1c6885"
+  language-code="en"
+  max-query-length="-1">
+  <df-messenger-chat-bubble
+   chat-title="Blood Donation Agent">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>"""
+
+
+# Looker Dashboards
+# The link of the looker Dashboard must follow this format:
+# https://<LOOKER INSTANCE URL>/embed/dashboards/<DASHBOARD NUMBER>?allow_login_screen=true
+# Include your Dashboards following this patter:
+# dashboards.<Name of your dashboard, no spaces> = '<link to your dashboard>'
+dashboards.Overview = ""
